@@ -12,10 +12,11 @@ class loop_cases():
     def example_one(self):
         i = 0
         while i < 6:
-            i += 1
-            if i == 3:
+            i = i + 1
+            if i == 4:
                 continue
-        print(i)
+            print(i)
+            print("hello")
 
     #Notar que se imprime el mensaje cuando la condicion es false
     def example_two(self):
@@ -24,7 +25,7 @@ class loop_cases():
             print(i)
             i += 1
         else:
-            print("i is no longer less than 6")   
+            print("i is no longer less than 6", i)   
 
     #No hagas esto
     #bucles infinitos 
@@ -58,7 +59,7 @@ class loop_cases():
         for x in fruits:
             if x == "banana":
                 continue
-        print(x)
+            print(x)
 
     #Ejemplo for con Break
     def example_for_three(self):
@@ -87,19 +88,19 @@ class loop_cases():
             print(i)
         
         #usando range y list
-        list(range(1, 11))
+        list_1 = list(range(1, 11))
 
 
 if __name__ == "__main__":
     obj = loop_cases()
-    obj.example_one()
-    obj.example_two
+    #obj.example_one()
+    #obj.example_two()
     #obj.example_three_error()
-    obj.example_four_do()
-    obj.example_for_one()
-    obj.example_for_two()
-    obj.example_for_three()
-    obj.example_for_four()
+    #obj.example_four_do()
+    #obj.example_for_one()
+    #obj.example_for_two()
+    #obj.example_for_three()
+    #obj.example_for_four()
     obj.example_for_five()
     
 

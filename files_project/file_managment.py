@@ -14,7 +14,7 @@ class file_managment():
     def read_file(self,path,file_name,mode):
         #f = open(file_name, mode) 
         #Read a pdf use rb
-        f = open(path + "/" + file_name, "rb")
+        f = open(path + "/" + file_name, mode)
         #print(f.read())
         print("Done")
 
@@ -41,10 +41,10 @@ class file_managment():
         return status
 
     #test with a txt
-    def write_file(self,path,file_name,mode):
+    def write_file(self,path,file_name,mode,content):
 
         f = self.read_file(path,file_name,mode)
-        f.write("Now the file has more content!")
+        f.write(content)
         f.close()
 
         print("Complete")
@@ -52,14 +52,24 @@ class file_managment():
     def create_folder(self,path,directory_name):
         # Path definition
         path = os.path.join(path, directory_name)
+        os.chmod(path,0o777)
         # Create the directory
-        os.mkdir(path) 
+        #os.mkdir(path) 
         print("Directory '% s' created" % path) 
-
+        
+    def folder_access(self,path,directory_name):
+        
+        path = os.path.join(path, directory_name)
+        os.chmod(path,0o777)
+        
+        print("Directory '% s' chmod" % path) 
+        
+        
 
     def delete_os_folder(self,path,directory_name):
         # Path
         path = os.path.join(path, directory_name) 
+        
         #remove the path
         os.rmdir(path)
         print("% s has been removed successfully" % directory_name)
@@ -95,7 +105,7 @@ class file_managment():
         # list to store files name
         list_result = list()
         for (dir_path, dir_names, file_names) in walk(dir_path):
-            list_result.append(file_names)
+            print(file_names)
 
         print("List of files", list_result)
 
@@ -128,20 +138,24 @@ class file_managment():
 
 if __name__ == "__main__":
     obj = file_managment()
-    #path = "/Users/josetoribio/Documents/curso_python_avanzado/Loop_if_programs/files_project/input_files"
-    #file_name = "testing_file.txt"
-    path = "/Users/josetoribio/Documents/curso_python_avanzado/Loop_if_programs/files_project"
+    #Coloca tu path
+    #path = ""
+    #Coloca el file_name 
+    #file_name = ""
+    #Coloca tu path
+    path = ""
+    #Coloca el file_directory
     directory_name = "input_files"
+    #obj.read_file(path,file_name,"w")
     #obj.delete_file(path,file_name)
     #obj.exist_file(path,file_name)
-    #obj.write_file(path,file_name,"a")
+    #obj.write_file(path,file_name,"a","second content in python avanzado")
     #obj.create_folder(path,directory_name)
     #obj.delete_os_folder(path,directory_name)
     #obj.delete_shutil_folder(path,directory_name)
-    #obj.delete_shutil_rmtree_folder(path,directory_name)
     #obj.list_folder_files(path,directory_name)
     #obj.list_walk_folder_files(path,directory_name)
-    obj.list_pathlib_folder_files(path,directory_name)
+    #obj.list_pathlib_folder_files(path,directory_name)
 
 
 

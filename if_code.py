@@ -17,7 +17,7 @@ class if_statements():
     #if_elif
     def statements_two(self):
         a = 33
-        b = 33
+        b = 60
         if b > a:
             print("b is greater than a")
         elif a == b:
@@ -28,9 +28,9 @@ class if_statements():
         a = 200
         b = 33
         if b > a:
-            print("b is greater than a")
+            print("B greater")
         else:
-            print("b is not greater than a")
+            print("almost cases")
 
 
     #ejemplo con and (Y caso)
@@ -52,20 +52,30 @@ class if_statements():
 
     #ejemplo de NOT keyword; este oprador nos indica o ayuda a negar la condicion de nuestro IF  
     def statements_six(self):
-        a = 33
+        a = 300
         b = 200
         if not a > b:
             print("a is NOT greater than b")
+        else:
+            print("a es mayor a b")
 
     #if anidados ejemplo
     def statements_seven(self):
-        x = 41
-        if x > 10:
-            print("Above ten,")
-        if x > 20:
-            print("and also above 20!")
-        else:
-            print("but not above 20.")
+        edad = 40
+        name = "jose Luis"
+        size_name = len(name)
+        if edad > 30 and size_name > 4:
+            print("measuare name string,")
+            size_name = len(name)
+            
+            if size_name > 4 :
+                print("and also above 4!")
+            else:
+                print("but not above 4.")
+        elif edad < 30 :
+            print("delete from the list")
+
+                
 
     #short way 
     def statements_shor_way_one(self,a,b):
@@ -112,9 +122,9 @@ if __name__ == "__main__":
     #obj.statements_five()
     #obj.statements_six()
     #obj.statements_seven()
-    #obj.statements_shor_way_one(330,334)
+    #obj.statements_shor_way_one(360,334)
     #obj.statements_shor_way_two(333,400)
-    #obj.statements_shor_way_three(331,332)
+    #obj.statements_shor_way_three(332,332)
     obj.compare_execution()
 
     

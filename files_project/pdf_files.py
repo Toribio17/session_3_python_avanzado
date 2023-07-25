@@ -17,16 +17,16 @@ class pdf_files(file_managment):
         return pdf_reader
 
 
-    def get_text_by_page(self,path,pdf_name,page_index):
+    def get_text_by_page(self,path,pdf_name,page_index,mode):
         doc_pdf = self.read_pdf(path,pdf_name,mode)
 
         # printing number of pages in pdf file
-        pdf_content = doc_pdf.pages[0]
+        pdf_content = doc_pdf.pages[page_index]
         
         print(pdf_content.extract_text())
 
-    def get_text_all_pages(self,path,pdf_name):
-        doc_pdf = self.read_pdf(path,pdf_name,"r")
+    def get_text_all_pages(self,path,pdf_name,mode):
+        doc_pdf = self.read_pdf(path,pdf_name,mode)
 
         page_list = list()
         number_page = len(doc_pdf.pages)
@@ -82,9 +82,14 @@ class pdf_files(file_managment):
  
 if __name__ == "__main__":
     obj = pdf_files()
-    #path = "/Users/josetoribio/Documents/curso_python_avanzado/Loop_if_programs/files_project/input_files"
-    #file_name = "pdf_test.pdf"
-    #obj.get_text_all_pages(path,file_name)
-    path = "/Users/josetoribio/Documents/curso_python_avanzado/Loop_if_programs/files_project/"
-    directory_name = "input_files"
+    #Coloca el pdf tu path
+    path = ""
+    #Coloca coloca tu pdf file name
+    file_name = "pdf_test.pdf"
+    #obj.get_text_all_pages(path,file_name,"rb")
+    obj.get_text_by_page(path,file_name,0,"rb")
+    #Coloca el pdf tu path
+    #path = ""
+    #Coloca coloca tu pdf file name
+    #directory_name = "input_files"
     obj.check_pdf_names(path,directory_name)
